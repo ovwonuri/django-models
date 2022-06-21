@@ -1,4 +1,4 @@
-from django.conf import settings
+from django.contrib.auth import get_user_model
 from django.db import models
 
 # Create your models here.
@@ -7,7 +7,7 @@ class Post(models.Model):
     text = models.TextField(max_length=400)
     #foreign key so use get_user_model function
     author = models.ForeignKey(
-        settings.AUTH_USER_MODEL,
+        get_user_model(),
         on_delete=models.CASCADE,
     )
     created_date = models.DateTimeField
